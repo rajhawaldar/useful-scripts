@@ -1,0 +1,2 @@
+$KEY="X-API-KEY"
+(Invoke-WebRequest -Uri https://api.newrelic.com/v2/applications.json -Method GET -Headers @{'X-Api-Key'=$KEY}).Content | ConvertFrom-Json |Select  -ExpandProperty applications | Select Id,Name | Export-Csv NewRelicAppNames-with-NewRelicAppIds.csv
